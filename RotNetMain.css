@@ -1,0 +1,46 @@
+#pracProstor
+{
+background-color: grey;
+width: 300vb;
+height: 100vb;
+margin-left: 0px;
+margin-top: 0px;
+}
+
+.PC
+{
+cursor: pointer;
+width: 50px;
+height: 50px;
+background-color: red;
+position: fixed;
+}
+
+.SW
+{
+cursor: pointer;
+width: 50px;
+height: 50px;
+background-color: blue;
+position: fixed;
+}
+
+.Router
+{
+cursor: pointer;
+width: 50px;
+height: 50px;
+background-color: green;
+position: fixed;
+}
+
+.pridat
+{
+cursor: pointer;
+display: inline;
+text-align: center;
+color: white;
+width: 50px;
+height: 30px;
+background-color: black;
+}
