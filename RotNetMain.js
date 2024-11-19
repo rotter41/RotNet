@@ -1,36 +1,87 @@
 let novX = 0, novY = 0, startX = 0, startY = 0;
 let poradiPC = 0, poradiSW = 0, poradiRouter = 0;
+let oknoPC = [], zrusitOknPC = [], PC = [], IP_PC = [], MASK_PC = [], GATEWAY_PC = [], OkBt1 = [], IPaddressPC = [], MaskPC = [], gatewayPC = [];
+let provedlo
 
 document.getElementById("pridatPC").addEventListener("click", () => {
     poradiPC++
-    const novyPrvek = document.createElement("div"); 
+    const lokalniPoradi = poradiPC;
+    novyPrvek = document.createElement("div"); 
     novyPrvek.textContent = "PC " + poradiPC;
-    novyPrvek.classList.add("PC");
-    document.getElementById("pracProstor").appendChild(novyPrvek);
+    PC[poradiPC] = novyPrvek
+    PC[poradiPC].classList.add("PC");
+    document.getElementById("pracProstor").appendChild(PC[poradiPC]);
 
     //vytvořeni okna
 
-    novyOk = document.createElement("div");
+    novyOk = document.createElement("div")
     novyOk.classList.add("OKNO");
-    document.getElementById("pracProstor").appendChild(novyOk);
-    novyOk.style.opacity = 0
+    oknoPC[poradiPC] = novyOk;
+    oknoPC[poradiPC].id = "PC" + poradiPC;
+    document.getElementById("pracProstor").appendChild(oknoPC[poradiPC]);
+    oknoPC[poradiPC].style.opacity = 0
 
-    const cancel = document.createElement("div");
+    let cancel = document.createElement("div");
     cancel.textContent = "X"
-    cancel.classList.add("ZRUSIT" );
-    cancel.addEventListener("click" , () =>
+    zrusitOknPC[poradiPC] = cancel;
+    zrusitOknPC[poradiPC].classList.add("ZRUSIT");
+
+    zrusitOknPC[poradiPC].addEventListener("click", () => {
+        oknoPC[lokalniPoradi].style.opacity = 0; 
+    });
+
+    oknoPC[poradiPC].appendChild(zrusitOknPC[poradiPC]);
+
+    zprava = document.createElement("div")
+    zprava.classList.add("zprava");
+    zprava.textContent = "PC " + poradiPC
+    oknoPC[poradiPC].appendChild(zprava);
+
+    oknoPC[poradiPC].addEventListener("mousedown", mysDole);
+
+    PC[poradiPC].addEventListener("dblclick", () => {
+        oknoPC[lokalniPoradi].style.opacity = 1
+    })
+
+    const textbox = document.createElement("input");
+    textbox.type = "text"
+    textbox.placeholder = "IP address"
+    IP_PC[poradiPC] = textbox
+    IP_PC[poradiPC].id = "IP_PC" + lokalniPoradi; 
+    oknoPC[poradiPC].appendChild(IP_PC[poradiPC])
+
+    const textbox2 = document.createElement("input");
+    textbox2.type = "text"
+    textbox2.placeholder = "Subnet Mask"
+    MASK_PC[poradiPC] = textbox2
+    MASK_PC[poradiPC].id = "MASK_PC" + lokalniPoradi; 
+    oknoPC[poradiPC].appendChild(MASK_PC[poradiPC])
+
+    const textbox3 = document.createElement("input");
+    textbox3.type = "text"
+    textbox3.placeholder = "Gateway"
+    GATEWAY_PC[poradiPC] = textbox3
+    GATEWAY_PC[poradiPC].id = "GATEWAY_PC" + lokalniPoradi; 
+    oknoPC[poradiPC].appendChild(GATEWAY_PC[poradiPC])
+
+    const bt1 = document.createElement("div");
+    bt1.textContent = "OK"
+    bt1.classList.add("bt1");
+    OkBt1[poradiPC] = bt1
+    OkBt1[poradiPC].id = "OKNO_OK" + lokalniPoradi; 
+    oknoPC[poradiPC].appendChild(OkBt1[poradiPC])
+
+    OkBt1[poradiPC].addEventListener("click", () =>
     {
-        novyOk.style.opacity = 0
-    })
-    novyOk.appendChild(cancel);
+        IPaddressPC = IP_PC[poradiPC].value
+        console.log("Ip pc" + poradiPC + ": " + IPaddressPC)
+        MaskPC = MASK_PC[poradiPC].value
+        console.log("Mask pc" + poradiPC + ": " + MaskPC)
+        gatewayPC = GATEWAY_PC[poradiPC].value
+        console.log("Default gateway pc" + poradiPC + ": " + gatewayPC)
+    });
 
-    novyOk.addEventListener("mousedown", mysDole);
-
-    novyPrvek.addEventListener("dblclick", () => {
-        novyOk.style.opacity = 1
-    })
-
-    novyPrvek.addEventListener("mousedown", mysDole);
+    PC[poradiPC].addEventListener("mousedown", mysDole);
 });
 
 document.getElementById("pridatSW").addEventListener("click", () => {
@@ -77,5 +128,3 @@ function mysDole(e) {
     }
 
 }
-
-
