@@ -8,6 +8,28 @@ document.getElementById("pridatPC").addEventListener("click", () => {
     novyPrvek.classList.add("PC");
     document.getElementById("pracProstor").appendChild(novyPrvek);
 
+    //vytvořeni okna
+
+    novyOk = document.createElement("div");
+    novyOk.classList.add("OKNO");
+    document.getElementById("pracProstor").appendChild(novyOk);
+    novyOk.style.opacity = 0
+
+    const cancel = document.createElement("div");
+    cancel.textContent = "X"
+    cancel.classList.add("ZRUSIT" );
+    cancel.addEventListener("click" , () =>
+    {
+        novyOk.style.opacity = 0
+    })
+    novyOk.appendChild(cancel);
+
+    novyOk.addEventListener("mousedown", mysDole);
+
+    novyPrvek.addEventListener("dblclick", () => {
+        novyOk.style.opacity = 1
+    })
+
     novyPrvek.addEventListener("mousedown", mysDole);
 });
 
@@ -53,4 +75,7 @@ function mysDole(e) {
     function mysNahore(e) {
         document.removeEventListener("mousemove", mysPohyb);
     }
+
 }
+
+
