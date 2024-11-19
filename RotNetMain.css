@@ -1,3 +1,8 @@
+body
+{
+    user-select: none;
+}
+
 #pracProstor
 {
 background-color: grey;
@@ -47,6 +52,9 @@ background-color: black;
 
 .OKNO
 {
+    color: black;
+    font-size: 30px;
+    text-align: center;
     width: 200px;
     height: 400px;
     border: solid;
@@ -67,4 +75,33 @@ background-color: black;
     color: black;
     font-size: 10px;
     text-align: center;
+}
+
+.zprava
+{
+    display: inline;
+}
+
+.bt1
+{
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-size: x-small;
+    margin-left: 75px;
+    margin-top: 20px;
+    width: 40px;
+    height: 15px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+
+.bt1:hover
+{
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25)
+}
+
+.bt1:active
+{
+    transform: scale(1.05); 
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.35);
 }
