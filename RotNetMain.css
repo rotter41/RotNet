@@ -105,3 +105,8 @@ background-color: black;
     transform: scale(1.05); 
     box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.35);
 }
+
+.pingBox
+{
+    margin-top: 40px;
+}
